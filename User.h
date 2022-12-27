@@ -19,5 +19,6 @@ public:
 	int GetPhone();
 	void AddItemToList(Product item);
 	void Print();
+	
 };
 

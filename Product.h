@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <fstream>
 using namespace std;
 
 class Product
@@ -17,6 +18,10 @@ public:
 	void SetDiscount(float discount);
 	float GetDiscount();
 	float GetRealPrice();
-
+	friend std::ostream& operator << (std::ostream& os, const Product& cur) {
+		float RealPrice = cur.Price * (1 - cur.Discount);
+		os << cur.Name.c_str() << " Price " << cur.Price << " Discount " << cur.Discount <<" Price with discount " << RealPrice << "\n";
+		return os;
+	}
 };
 

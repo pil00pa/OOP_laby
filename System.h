@@ -8,5 +8,6 @@ private:
 public:
 	Product& GetProductByName(string name);
 	User& GetUserByPhone(int phone);
+	System(string MarketPath, vector<string> UserBasePath);
 };
 

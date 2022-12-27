@@ -15,8 +15,9 @@ User::User(string filepath)
 	MobilePhone = atoi(buffer.c_str());
 	getline(inputString, buffer, ',');
 	buffer = "";
+	inputString.clear();
 	//Shopping list
-	while (getline(inputString,line))
+	while (getline(InputFile,line))
 	{
 		stringstream inputString(line);
 		string name;
@@ -38,8 +39,6 @@ User::User(string filepath)
 		ShoppingList.push_back(TempProduct);
 		line = "";
 	}
-
-	int length = ShoppingList.size();
 	InputFile.close();
 }
 
@@ -73,6 +72,7 @@ void User::Print()
 	cout << Name<<"\n";
 	cout << MobilePhone << "\n";
 	for (int i = 0; i < ShoppingList.size(); i++) {
-		cout << ShoppingList[i].GetName() << "\n";
+		cout << ShoppingList[i];
 	}
 }
+
