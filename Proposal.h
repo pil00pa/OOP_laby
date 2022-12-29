@@ -1,11 +1,15 @@
-#pragma once
-#include "User.h"
+#ifndef PROPOSAL_H
+#define PROPOSAL_H
+
+#include "Product.h"
+#include <vector>
+
 class Proposal
 {
 private:
 	string Name;
 	string Text;
-	vector<Product>RelatedProducts;
+	vector<Product> RelatedProducts;
 	int Specifications;
 public:
 	void SetName(string name);
@@ -14,7 +18,6 @@ public:
 	string GetText();
 	void SetSpecifications(int specifications);
 	string GetSpecifications();
-
-
 };
 
+#endif

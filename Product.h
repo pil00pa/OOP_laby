@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PRODUCT_H
+#define PRODUCT_H
+
 #include <string>
 #include <fstream>
 using namespace std;
@@ -25,3 +27,4 @@ public:
 	}
 };
 
+#endif

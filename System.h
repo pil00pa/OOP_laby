@@ -1,5 +1,9 @@
-#pragma once
-#include "Proposal.h"
+#ifndef SYSTEM_H
+#define SYSTEM_H
+
+#include "Product.h"
+#include "User.h"
+
 class System
 {
 private:
@@ -11,3 +15,4 @@ public:
 	System(string MarketPath, vector<string> UserBasePath);
 };
 
+#endif

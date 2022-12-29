@@ -1,4 +1,10 @@
 #include "User.h"
+#include "Product.h"
+
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 
 User::User(string filepath)
 {
@@ -9,14 +15,14 @@ User::User(string filepath)
 	string buffer = "";
 	getline(InputFile, line);
 	stringstream inputString(line);
-	//initialsing mane and phone
+	// initialsing mane and phone
 	getline(inputString, Name, ',');
 	getline(inputString, buffer, ',');
 	MobilePhone = atoi(buffer.c_str());
 	getline(inputString, buffer, ',');
 	buffer = "";
 	inputString.clear();
-	//Shopping list
+	// Shopping list
 	while (getline(InputFile,line))
 	{
 		stringstream inputString(line);
@@ -75,4 +81,3 @@ void User::Print()
 		cout << ShoppingList[i];
 	}
 }
-

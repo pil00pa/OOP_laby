@@ -1,4 +1,6 @@
 #include "System.h"
+#include "Product.h"
+#include <sstream>
 
 Product& System::GetProductByName(string name)
 {

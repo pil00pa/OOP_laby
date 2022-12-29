@@ -19,3 +19,12 @@ string Proposal::GetText()
 {
 	return Text;
 }
+
+void Proposal::SetSpecifications(int specifications)
+{
+}
+
+string Proposal::GetSpecifications()
+{
+	return string();
+}

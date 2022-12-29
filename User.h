@@ -1,16 +1,15 @@
-#pragma once
+#ifndef USER_H
+#define USER_H
+
 #include "Product.h"
 #include <vector>
-#include <iostream>
-#include <fstream>
-#include <sstream>
 
 class User
 {
 private:
 	string Name;
 	int MobilePhone;
-	vector <Product> ShoppingList;
+	vector<Product> ShoppingList;
 public:
 	User(string filepath);
 	void SetName(string name);
@@ -19,6 +18,6 @@ public:
 	int GetPhone();
 	void AddItemToList(Product item);
 	void Print();
-	
 };
 
+#endif
