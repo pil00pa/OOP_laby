@@ -7,42 +7,42 @@ Product::Product(string name, float price, float discount)
 	Discount = discount;
 }
 
-bool Product::IsOnDiscount()
+bool Product::isOnDiscount()
 {
 	return (Discount>0);
 }
 
-void Product::SetName(string name)
+void Product::setName(string name)
 {
 	Name = name;
 }
 
-string Product::GetName() const
+string Product::getName() const
 {
 	return Name;
 }
 
-void Product::SetPrice(float price)
+void Product::setPrice(float price)
 {
 	Price = price;
 }
 
-float Product::GetFixedPrice() const
+float Product::getFixedPrice() const
 {
 	return Price;
 }
 
-void Product::SetDiscount(float discount)
+void Product::setDiscount(float discount)
 {
 	Discount = discount;
 }
 
-float Product::GetDiscount() const
+float Product::getDiscount() const
 {
 	return Discount;
 }
 
-float Product::GetRealPrice() const
+float Product::getRealPrice() const
 {
 	return Price*(1-Discount);
 }

@@ -16,12 +16,12 @@ public:
 
 	User(string filepath);
 
-	void SetName(string name);
-	string GetName() const;
-	void SetPhone(int phone);
-	int GetPhone() const;
-	void AddItemToList(Product item);
-	void Print();
+	void setName(string name);
+	string getName() const;
+	void setPhone(int phone);
+	int getPhone() const;
+	void addItemToList(Product item);
+	void print();
 };
 
 enum SocialGroup { Lower, Middle, Upper };

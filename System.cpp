@@ -2,23 +2,23 @@
 #include "Product.h"
 #include <sstream>
 
-Product& System::GetProductByName(string name)
+Product& System::getProductByName(string name)
 {
     // TODO: insert return statement here
     
     for (int i = 0; i < Market.size(); i++) {
         Product current(Market[i]);
-        if (current.GetName() == name) {
+        if (current.getName() == name) {
             return current;
         }
     }
 }
 
-User& System::GetUserByPhone(int phone)
+User& System::getUserByPhone(int phone)
 {
     for (auto i =UserBase.begin(); i != UserBase.end(); i++) {
         User current(*i);
-        if (current.GetPhone() == phone) {
+        if (current.getPhone() == phone) {
             return current;
         }
     }

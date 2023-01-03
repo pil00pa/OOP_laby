@@ -50,36 +50,36 @@ User::User(string filepath)
 	sort(ShoppingList.begin(), ShoppingList.end());
 }
 
-void User::SetName(string name)
+void User::setName(string name)
 {
 	Name = name;
 }
 
-string User::GetName() const
+string User::getName() const
 {
 	return Name;
 }
 
-void User::SetPhone(int phone)
+void User::setPhone(int phone)
 {
 	MobilePhone = phone;
 }
 
-int User::GetPhone() const
+int User::getPhone() const
 {
 	return MobilePhone;
 }
 
-void User::AddItemToList(Product item)
+void User::addItemToList(Product item)
 {
 	ShoppingList.push_back(item);
 }
 
-void User::Print()
+void User::print()
 {
 	cout << Name<<"\n";
 	cout << MobilePhone << "\n";
-	for (int i = 0; i < ShoppingList.size(); i++) {
-		cout << ShoppingList[i];
+	for (auto i =ShoppingList.begin(); i != ShoppingList.end(); i++) {
+		cout << *i;
 	}
 }
