@@ -3,12 +3,12 @@
 
 #include "Product.h"
 #include "User.h"
-
+#include <list>
 class System
 {
 private:
 	vector <Product> Market;
-	vector <User> UserBase;
+	list <User> UserBase;
 public:
 	Product& GetProductByName(string name);
 	User& GetUserByPhone(int phone);
