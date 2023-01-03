@@ -17,7 +17,7 @@ void Product::SetName(string name)
 	Name = name;
 }
 
-string Product::GetName()
+string Product::GetName() const
 {
 	return Name;
 }
@@ -27,7 +27,7 @@ void Product::SetPrice(float price)
 	Price = price;
 }
 
-float Product::GetFixedPrice()
+float Product::GetFixedPrice() const
 {
 	return Price;
 }
@@ -37,12 +37,12 @@ void Product::SetDiscount(float discount)
 	Discount = discount;
 }
 
-float Product::GetDiscount()
+float Product::GetDiscount() const
 {
 	return Discount;
 }
 
-float Product::GetRealPrice()
+float Product::GetRealPrice() const
 {
 	return Price*(1-Discount);
 }

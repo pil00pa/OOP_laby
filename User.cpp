@@ -53,7 +53,7 @@ void User::SetName(string name)
 	Name = name;
 }
 
-string User::GetName()
+string User::GetName() const
 {
 	return Name;
 }
@@ -63,7 +63,7 @@ void User::SetPhone(int phone)
 	MobilePhone = phone;
 }
 
-int User::GetPhone()
+int User::GetPhone() const
 {
 	return MobilePhone;
 }
