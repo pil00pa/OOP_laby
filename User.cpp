@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 User::User(string filepath)
 {
@@ -46,6 +47,7 @@ User::User(string filepath)
 		line = "";
 	}
 	InputFile.close();
+	sort(ShoppingList.begin(), ShoppingList.end());
 }
 
 void User::SetName(string name)

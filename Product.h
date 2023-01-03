@@ -25,6 +25,9 @@ public:
 		os << cur.Name.c_str() << " Price " << cur.Price << " Discount " << cur.Discount <<" Price with discount " << RealPrice << "\n";
 		return os;
 	}
+	bool operator < (const Product& other) {
+		return (this->Price < other.Price);
+	}
 };
 
 #endif
