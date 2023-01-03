@@ -16,8 +16,8 @@ Product& System::GetProductByName(string name)
 
 User& System::GetUserByPhone(int phone)
 {
-    for (int i = 0; i < UserBase.size(); i++) {
-        User current(UserBase[i]);
+    for (auto i =UserBase.begin(); i != UserBase.end(); i++) {
+        User current(*i);
         if (current.GetPhone() == phone) {
             return current;
         }

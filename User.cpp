@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 User::User(string filepath)
 {
@@ -46,6 +47,7 @@ User::User(string filepath)
 		line = "";
 	}
 	InputFile.close();
+	sort(ShoppingList.begin(), ShoppingList.end());
 }
 
 void User::SetName(string name)
@@ -53,7 +55,7 @@ void User::SetName(string name)
 	Name = name;
 }
 
-string User::GetName()
+string User::GetName() const
 {
 	return Name;
 }
@@ -63,7 +65,7 @@ void User::SetPhone(int phone)
 	MobilePhone = phone;
 }
 
-int User::GetPhone()
+int User::GetPhone() const
 {
 	return MobilePhone;
 }

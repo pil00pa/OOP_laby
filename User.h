@@ -17,11 +17,9 @@ public:
 	User(string filepath);
 
 	void SetName(string name);
-	string GetName();
-
+	string GetName() const;
 	void SetPhone(int phone);
-	int GetPhone();
-
+	int GetPhone() const;
 	void AddItemToList(Product item);
 	void Print();
 };
