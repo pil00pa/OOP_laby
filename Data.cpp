@@ -5,6 +5,86 @@ class Data
 {
 private:
 	int Day, Month, Year;
+	Data& dayChecker() {
+		switch (Month)
+		{
+		case 1: 
+			if (Day > 31) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 2:
+			if (Day > 28) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 3:
+			if (Day > 31) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 4:
+			if (Day > 30) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 5:
+			if (Day > 31) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 6:
+			if (Day > 30) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 7:
+			if (Day > 31) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 8:
+			if (Day > 31) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 9:
+			if (Day > 30) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 10:
+			if (Day > 31) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 11:
+			if (Day > 30) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		case 12:
+			if (Day > 31) {
+				Month++;
+				Day = 1;
+			}
+			break;
+		default:
+			break;
+		}
+		return *this;
+	}
 public:
 	Data()
 	{
@@ -65,7 +145,11 @@ public:
 	{
 		return Year;
 	}
-
+	Data& operator ++() {
+		Day++;
+		this->dayChecker();
+		return *this;
+	}
 	friend std::ostream& operator << (std::ostream& os, const Data& cur) {
 		os << cur.Day << "." << cur.Month << "." << cur.Year << std::endl;
 		return os;
