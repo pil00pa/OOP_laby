@@ -7,6 +7,20 @@
 #include <sstream>
 #include <algorithm>
 
+User::User() : _name(""), _mobilePhone(0)
+{
+}
+
+User::User(string name, int mobilePhone) :
+	_name(name), _mobilePhone(mobilePhone)
+{
+}
+
+User::User(string name, int mobilePhone, list<Product> shoppingList) : 
+	_name(name), _mobilePhone(mobilePhone), _shoppingList(shoppingList)
+{
+}
+
 User::User(string filepath)
 {
 	ifstream InputFile;
@@ -16,10 +30,10 @@ User::User(string filepath)
 	string buffer = "";
 	getline(InputFile, line);
 	stringstream inputString(line);
-	// initialsing mane and phone
-	getline(inputString, Name, ',');
+	// initialsing name and phone
+	getline(inputString, _name, ',');
 	getline(inputString, buffer, ',');
-	MobilePhone = atoi(buffer.c_str());
+	_mobilePhone = atoi(buffer.c_str());
 	getline(inputString, buffer, ',');
 	buffer = "";
 	inputString.clear();
@@ -28,58 +42,83 @@ User::User(string filepath)
 	{
 		stringstream inputString(line);
 		string name;
+		int id;
 		float price;
 		float discount;
+		Category category;
+
 		buffer = "";
 
+		// name
 		getline(inputString, name, ',');
-
+		// id
+		getline(inputString, buffer, ',');
+		id = atoi(buffer.c_str());
+		buffer = "";
+		// price
 		getline(inputString, buffer, ',');
 		price = atof(buffer.c_str());
 		buffer = "";
-
+		// discount
 		getline(inputString, buffer, ',');
 		discount = atof(buffer.c_str());
 		buffer = "";
+		// category
+		getline(inputString, buffer, ',');
+		category = Category(atoi(buffer.c_str()));
+		buffer = "";
 
-		Product TempProduct(name, price, discount);
-		ShoppingList.push_back(TempProduct);
+		Product TempProduct(name, id, price, discount, category);
+		_shoppingList.push_back(TempProduct);
 		line = "";
 	}
 	InputFile.close();
-	sort(ShoppingList.begin(), ShoppingList.end());
+	// sort(_shoppingList.begin(), _shoppingList.end());
 }
 
-void User::setName(string name)
+
+SocialGroup User::getGroup() { return Undefined; }
+
+
+User& User::setName(string name)
 {
-	Name = name;
+	_name = name;
+	return *this;
 }
 
 string User::getName() const
 {
-	return Name;
+	return _name;
 }
 
-void User::setPhone(int phone)
+User& User::setPhone(int phone)
 {
-	MobilePhone = phone;
+	_mobilePhone = phone;
+	return *this;
 }
 
 int User::getPhone() const
 {
-	return MobilePhone;
+	return _mobilePhone;
 }
 
-void User::addItemToList(Product item)
+User& User::addItemToList(Product item)
 {
-	ShoppingList.push_back(item);
+	_shoppingList.push_back(item);
+	return *this;
 }
 
-void User::print()
+list<Product> User::getShoppingList() const
 {
-	cout << Name<<"\n";
-	cout << MobilePhone << "\n";
-	for (auto i =ShoppingList.begin(); i != ShoppingList.end(); i++) {
-		cout << *i;
+	return _shoppingList;
+}
+
+
+void User::print() const
+{
+	cout << _name<<"\n";
+	cout << _mobilePhone << "\n";
+	for (auto i =_shoppingList.begin(); i != _shoppingList.end(); i++) {
+		cout << *i << endl;
 	}
 }

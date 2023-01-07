@@ -5,40 +5,64 @@
 #include <list>
 using namespace std;
 
+enum SocialGroup { Lower = 0, Middle = 1, Upper = 2, Undefined = 3 };
+
 class User
 {
-private:
-	string Name;
-	int MobilePhone;
-	list<Product> ShoppingList;
+protected:
+	string _name;
+	int _mobilePhone;
+	list<Product> _shoppingList;
 public:
-	virtual SocialGroup GetCategory() = 0;
-
+	User();
+	User(string name, int mobilePhone);
+	User(string name, int mobilePhone, list<Product> shoppingList);
 	User(string filepath);
 
-	void setName(string name);
+	virtual SocialGroup getGroup();
+	User& setName(string name);
 	string getName() const;
-	void setPhone(int phone);
+	User& setPhone(int phone);
 	int getPhone() const;
-	void addItemToList(Product item);
-	void print();
+	User& addItemToList(Product item);
+	list<Product> getShoppingList() const;
+	void print() const;
 };
-
-enum SocialGroup { Lower, Middle, Upper };
 
 class LowerClass : public User
 {
-	SocialGroup GetCategory() { return Lower; }
+public:
+	LowerClass(const User& u)
+	{
+		_name = u.getName();
+		_mobilePhone = u.getPhone();
+		_shoppingList = u.getShoppingList();
+	}
+	SocialGroup getGroup() { return Lower; }
 };
 
 class MiddleClass : public User
 {
-	SocialGroup GetCategory() { return Middle; }
+public:
+	MiddleClass(const User& u)
+	{
+		_name = u.getName();
+		_mobilePhone = u.getPhone();
+		_shoppingList = u.getShoppingList();
+	}
+	SocialGroup getGroup() { return Middle; }
 };
 
 class UpperClass : public User
 {
-	SocialGroup GetCategory() { return Upper; }
+public:
+	UpperClass(const User& u)
+	{
+		_name = u.getName();
+		_mobilePhone = u.getPhone();
+		_shoppingList = u.getShoppingList();
+	}
+	SocialGroup getGroup() { return Upper; }
 };
 
 #endif

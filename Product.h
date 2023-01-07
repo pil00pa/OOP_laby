@@ -6,28 +6,43 @@
 #include <sstream>
 using namespace std;
 
+enum Category { forLower, forMiddle, forUpper, forAll };
+
 class Product
 {
 private:
-	string Name;
-	float Price, Discount;
+	string _name;
+	int _id;
+	float _price, _discount;
+	Category _сategory;
 public:
-	Product(string name, float price, float discount);
-	bool isOnDiscount();
-	void setName(string name);
+	Product();
+	Product(string name, int id, float price, float discount, Category category);
+	Product& setName(string name);
 	string getName() const;
-	void setPrice(float price);
+
+	Product& setId(int id);
+	int getId() const;
+
+	Product& setCategory(const Category c);
+	Category getCategory() const;
+
+	Product& setPrice(float price);
 	float getFixedPrice() const;
-	void setDiscount(float discount);
-	float getDiscount() const;
 	float getRealPrice() const;
+
+	Product& setDiscount(float discount);
+	float getDiscount() const;
+
 	friend std::ostream& operator << (std::ostream& os, const Product& cur) {
-		float RealPrice = cur.Price * (1 - cur.Discount);
-		os << cur.Name.c_str() << " Price " << cur.Price << " Discount " << cur.Discount <<" Price with discount " << RealPrice << "\n";
+		float RealPrice = cur._price * (1 - cur._discount);
+		os << cur._name.c_str() << " _price " << cur._price << " _discount " << cur._discount <<" _price with discount " << RealPrice << "\n";
 		return os;
 	}
-	bool operator < (const Product& other) {
-		return (this->Price < other.Price);
+
+	bool operator < (const Product& other) 
+	{
+		return (this->_price < other._price);
 	}
 };
 

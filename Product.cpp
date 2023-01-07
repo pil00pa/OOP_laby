@@ -1,48 +1,68 @@
 #include "Product.h"
 
-Product::Product(string name, float price, float discount)
-{
-	Name = name;
-	Price = price;
-	Discount = discount;
-}
+Product::Product() : _name(""), _id(0), _price(0), _discount(0), _сategory(forAll)
+{}
 
-bool Product::isOnDiscount()
-{
-	return (Discount>0);
-}
+Product::Product(string name, int id, float price, float discount, Category category) :
+	_name(name), _id(id), _price(price), _discount(discount), _сategory(category)
+	{}
 
-void Product::setName(string name)
+Product& Product::setName(string name)
 {
-	Name = name;
+	_name = name;
+	return *this;
 }
 
 string Product::getName() const
 {
-	return Name;
+	return _name;
 }
 
-void Product::setPrice(float price)
+Product& Product::setId(int id)
 {
-	Price = price;
+	_id = id;
+	return *this;
+}
+
+int Product::getId() const
+{
+	return _id;
+}
+
+Product& Product::setCategory(const Category c)
+{
+	_сategory = c;
+	return *this;
+}
+
+Category Product::getCategory() const
+{
+	return _сategory;
+}
+
+Product& Product::setPrice(float price)
+{
+	_price = price;
+	return *this;
 }
 
 float Product::getFixedPrice() const
 {
-	return Price;
+	return _price;
 }
 
-void Product::setDiscount(float discount)
+Product& Product::setDiscount(float discount)
 {
-	Discount = discount;
+	_discount = discount;
+	return *this;
 }
 
 float Product::getDiscount() const
 {
-	return Discount;
+	return _discount;
 }
 
 float Product::getRealPrice() const
 {
-	return Price*(1-Discount);
+	return _price*(1-_discount);
 }
