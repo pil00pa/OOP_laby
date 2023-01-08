@@ -9,6 +9,7 @@
 
 User::User() : _name(""), _mobilePhone(0)
 {
+	//objectCount++;
 }
 
 User::User(string name, int mobilePhone) :

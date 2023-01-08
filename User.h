@@ -14,6 +14,7 @@ protected:
 	int _mobilePhone;
 	list<Product> _shoppingList;
 public:
+	
 	User();
 	User(string name, int mobilePhone);
 	User(string name, int mobilePhone, list<Product> shoppingList);
@@ -27,6 +28,17 @@ public:
 	User& addItemToList(Product item);
 	list<Product> getShoppingList() const;
 	void print() const;
+	bool operator ==(const User& other) {
+		return (this->_mobilePhone == other._mobilePhone);
+	}
+	bool operator !=(const User& other) {
+		return (this->_mobilePhone != other._mobilePhone);
+	}
+	Product& operator [](int pos) {
+		auto it = _shoppingList.begin();
+		for (int i = 0; i > pos; i++, it++);
+		return *it;
+	}
 };
 
 class LowerClass : public User
