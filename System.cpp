@@ -130,28 +130,28 @@ System& System::addUser(const User u)
 
 vector<User> System::getLowerClass() const
 {
-
+    return {};
 }
 vector<User> System::getMiddleClass() const
 {
-
+    return {};
 }
 vector<User> System::getUpperClass() const
 {
-
+    return {};
 }
 
 vector<Product> System::getPopularProductForLower() const
 {
-
+    return {};
 }
 vector<Product> System::getPopularProductForMiddle() const
 {
-
+    return {};
 }
 vector<Product> System::getPopularProductForUpper() const
 {
-
+    return {};
 }
 
 User& System::getUserByPhone(int phone)

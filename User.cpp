@@ -9,6 +9,7 @@
 
 User::User() : _name(""), _mobilePhone(0)
 {
+	//objectCount++;
 }
 
 User::User(string name, int mobilePhone) :
@@ -16,7 +17,7 @@ User::User(string name, int mobilePhone) :
 {
 }
 
-User::User(string name, int mobilePhone, list<Product> shoppingList) : 
+User::User(string name, int mobilePhone, list<Product> shoppingList) :
 	_name(name), _mobilePhone(mobilePhone), _shoppingList(shoppingList)
 {
 }
@@ -26,7 +27,7 @@ User::User(string filepath)
 	ifstream InputFile;
 	InputFile.open(filepath);
 	string line = "";
-	
+
 	string buffer = "";
 	getline(InputFile, line);
 	stringstream inputString(line);
@@ -38,7 +39,7 @@ User::User(string filepath)
 	buffer = "";
 	inputString.clear();
 	// Shopping list
-	while (getline(InputFile,line))
+	while (getline(InputFile, line))
 	{
 		stringstream inputString(line);
 		string name;
@@ -116,9 +117,9 @@ list<Product> User::getShoppingList() const
 
 void User::print() const
 {
-	cout << _name<<"\n";
+	cout << _name << "\n";
 	cout << _mobilePhone << "\n";
-	for (auto i =_shoppingList.begin(); i != _shoppingList.end(); i++) {
+	for (auto i = _shoppingList.begin(); i != _shoppingList.end(); i++) {
 		cout << *i << endl;
 	}
 }
