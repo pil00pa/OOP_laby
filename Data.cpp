@@ -86,6 +86,7 @@ private:
 		return *this;
 	}
 public:
+	static int objectCount;
 	Data()
 	{
 		time_t seconds = time(NULL);
@@ -95,9 +96,10 @@ public:
 		Day = timeinfo.tm_mday;
 		Month = timeinfo.tm_mon + 1;
 		Year = timeinfo.tm_year + 1900;
+		objectCount++;
 	}
-	Data(int _Day, int _Month, int _Year) : Day(_Day), Month(_Month), Year(_Year) {}
-	Data(const Data& _Data) : Day(_Data.Day), Month(_Data.Month), Year(_Data.Year) {}
+	Data(int _Day, int _Month, int _Year) : Day(_Day), Month(_Month), Year(_Year) { objectCount++; }
+	Data(const Data& _Data) : Day(_Data.Day), Month(_Data.Month), Year(_Data.Year) { objectCount++; }
 
 	Data& setDay(int _Day)
 	{
@@ -157,9 +159,3 @@ public:
 
 	~Data() {}
 };
-
-int main()
-{
-	Data data;
-	std::cout << data;
-}

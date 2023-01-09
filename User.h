@@ -14,7 +14,7 @@ protected:
 	int _mobilePhone;
 	list<Product> _shoppingList;
 public:
-
+	
 	User();
 	User(string name, int mobilePhone);
 	User(string name, int mobilePhone, list<Product> shoppingList);
