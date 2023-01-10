@@ -9,31 +9,29 @@
 
 class System
 {
-public:
+private:
 	unordered_map<int, Product> _Market;
 	unordered_map<int, User*> _UserBase;
 
 	SocialGroup findUserGroup(User u);
+	void updateSystem();
 public:
 	System();
 	System(string MarketPath, vector<string> UserBasePath);
 
 	System& addProduct(const Product p);
-
 	Product& getProductById(int id);
 	User& getUserByPhone(int phone);
 	System& addUser(const User u);
 
-	vector<User> getLowerClass() const;
-	vector<User> getMiddleClass() const;
-	vector<User> getUpperClass() const;
+	vector<User> getLowerClass();
+	vector<User> getMiddleClass();
+	vector<User> getUpperClass();
 
-	vector<Product> getPopularProductForLower() const;
-	vector<Product> getPopularProductForMiddle() const;
-	vector<Product> getPopularProductForUpper() const;
+	vector<pair<int, Product>> getPopularProductForLower();
+	vector<pair<int, Product>> getPopularProductForMiddle();
+	vector<pair<int, Product>> getPopularProductForUpper();
 
-
-	vector<Product> getProductsByPopularity() const;
 	void getSocialGroups() const;
 
 	~System();

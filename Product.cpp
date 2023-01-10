@@ -62,6 +62,11 @@ float Product::getDiscount() const
 	return _discount;
 }
 
+bool Product::operator<(const Product& other) const
+{
+	return (this->_price < other._price);
+}
+
 float Product::getRealPrice() const
 {
 	return _price*(1-_discount);

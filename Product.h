@@ -40,10 +40,7 @@ public:
 		return os;
 	}
 
-	bool operator < (const Product& other) 
-	{
-		return (this->_price < other._price);
-	}
+	bool operator < (const Product& other) const;
 };
 
 #endif

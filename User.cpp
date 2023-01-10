@@ -114,6 +114,11 @@ list<Product> User::getShoppingList() const
 	return _shoppingList;
 }
 
+int User::getSizeOfShoppingList() const
+{
+	return _shoppingList.size();
+}
+
 
 void User::print() const
 {

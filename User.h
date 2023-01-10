@@ -27,7 +27,22 @@ public:
 	int getPhone() const;
 	User& addItemToList(Product item);
 	list<Product> getShoppingList() const;
+
+	int getSizeOfShoppingList() const;
+
 	void print() const;
+
+
+	User& operator= (const User& u)
+	{
+		_name = u.getName();
+		_mobilePhone = u.getPhone();
+		_shoppingList = u.getShoppingList();
+
+		return *this;
+	}
+
+
 	bool operator ==(const User& other) {
 		return (this->_mobilePhone == other._mobilePhone);
 	}
